@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander's Advanced English Worksheet - April 28, 2025</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #f8f9fa;
+            --accent-color: #e67e22;
+            --text-color: #333;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --error-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+        
+        h1 {
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--primary-color);
+            margin-top: 40px;
+        }
+        
+        .info-section {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .task {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .task-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .option {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .correct {
+            background-color: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+        }
+        
+        .incorrect {
+            background-color: var(--error-color);
+            color: white;
+            border-color: var(--error-color);
+        }
+        
+        .not-given {
+            background-color: var(--warning-color);
+            color: white;
+            border-color: var(--warning-color);
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .feedback.show {
+            display: block;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        
+        .matching-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .matching-left, .matching-right {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .matching-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+        
+        .matching-selection {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .rephrase-input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .button:hover {
+            background-color: #3a5882;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .explanation {
+            background-color: #e9f7fe;
+            border-left: 4px solid var(--primary-color);
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+        
+        .vocabulary-list {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .vocabulary-item {
+            margin-bottom: 8px;
+            display: flex;
+        }
+        
+        .vocabulary-term {
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alexander's Advanced English Worksheet - Academic Text Analysis</h1>
+    
+    <div class="info-section">
+        <p><strong>Student:</strong> Alexander</p>
+        <p><strong>Date:</strong> April 28, 2025</p>
+        <p><strong>Topics:</strong> Academic Vocabulary, Collocations, Complex Grammar</p>
+        <p><strong>Source:</strong> "To know or not to know" by Costica Bradatan, TLS (April 25, 2025)</p>
+        <p>Complete the following exercises based on the academic article. Each exercise focuses on different language aspects that might be challenging for advanced English learners.</p>
+    </div>
+    
+    <div class="task">
+        <h3 class="task-title">Task 1: Multiple Choice - Advanced Vocabulary</h3>
+        
+        <div class="explanation">
+            <p>This task focuses on understanding advanced vocabulary from academic texts. Read each sentence and choose the best definition for the underlined word.</p>
+        </div>
+        
+        <div class="vocabulary-list">
+            <h4>Vocabulary List:</h4>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">ephemeral</span>
+                <span>lasting for a very short time</span>
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">transgression</span>
+                <span>violation of a law, command, or moral code</span>
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">recalcitrant</span>
+                <span>obstinately uncooperative or resistant</span>
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">idiosyncratically</span>
+                <span>in a way unique to an individual</span>
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">discernible</span>
+                <span>able to be perceived or recognized</span>
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">genealogical</span>
+                <span>relating to the study of family history or lineage</span>
+            </div>
+            <div class="vocabulary-item">
+                <span class="vocabulary-term">disenchantment</span>
+                <span>a feeling of disappointment when something isn't as good as you hoped</span>
+            </div>
+        </div>
+        
+        <div class="question" id="q1">
+            <p>1. "Oh, wretched, <strong>ephemeral</strong> race, children of chance and misery".</p>
+            <div class="options">
+                <div class="option" data-value="A">A) Lasting for eternity</div>
+                <div class="option" data-value="B">B) Short-lived or temporary</div>
+                <div class="option" data-value="C">C) Weak and sickly</div>
+                <div class="option" data-value="D">D) Spiritually enlightened</div>
+            </div>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q2">
+            <p>2. "All too often, a prohibition is an invitation to <strong>transgression</strong> in disguise."</p>
+            <div class="options">
+                <div class="option" data-value="A">A) Transformation</div>
+                <div class="option" data-value="B">B) Violation of a law or rule</div>
+                <div class="option" data-value="C">C) Celebration</div>
+                <div class="option" data-value="D">D) Enlightenment</div>
+            </div>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q3">
+            <p>3. "The world is a <strong>recalcitrant</strong> place."</p>
+            <div class="options">
+                <div class="option" data-value="A">A) Beautiful and serene</div>
+                <div class="option" data-value="B">B) Large and expansive</div>
+                <div class="option" data-value="C">C) Stubborn and uncooperative</div>
+                <div class="option" data-value="D">D) Dangerous and frightening</div>
+            </div>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q4">
+            <p>4. "His tone is <strong>idiosyncratically</strong> personal, often whimsical and freewheeling, but never dull."</p>
+            <div class="options">
+                <div class="option" data-value="A">A) Extremely</div>
+                <div class="option" data-value="B">B) Unusually</div>
+                <div class="option" data-value="C">C) In a uniquely individual way</div>
+                <div class="option" data-value="D">D) Somewhat</div>
+            </div>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q5">
+            <p>5. "His influence is <strong>discernible</strong> throughout Lilla's book."</p>
+            <div class="options">
+                <div class="option" data-value="A">A) Hidden</div>
+                <div class="option" data-value="B">B) Noticeable or recognizable</div>
+                <div class="option" data-value="C">C) Limited</div>
+                <div class="option" data-value="D">D) Important</div>
+            </div>
+            <div class="feedback"></div>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3 class="task-title">Task 2: Matching - Collocations</h3>
+        
+        <div class="explanation">
+            <p>Match the words to form collocations (word partnerships) found in the article. Choose from the dropdown menu the best word to complete each collocation.</p>
+        </div>
+        
+        <div class="matching-container">
+            <div class="matching-left">
+                <div class="matching-item" id="m1">
+                    <p>1. Royal _________</p>
+                    <select class="matching-selection">
+                        <option value="">Select...</option>
+                        <option value="A">approach</option>
+                        <option value="B">arm-twisting</option>
+                        <option value="C">connection</option>
+                        <option value="D">exclusion</option>
+                    </select>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="matching-item" id="m2">
+                    <p>2. Uncanny _________</p>
+                    <select class="matching-selection">
+                        <option value="">Select...</option>
+                        <option value="A">connection</option>
+                        <option value="B">approach</option>
+                        <option value="C">lies</option>
+                        <option value="D">unmasking</option>
+                    </select>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="matching-item" id="m3">
+                    <p>3. Oblique _________</p>
+                    <select class="matching-selection">
+                        <option value="">Select...</option>
+                        <option value="A">connection</option>
+                        <option value="B">exclusion</option>
+                        <option value="C">approach</option>
+                        <option value="D">lies</option>
+                    </select>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+            
+            <div class="matching-right">
+                <div class="matching-item" id="m4">
+                    <p>4. Methodical _________</p>
+                    <select class="matching-selection">
+                        <option value="">Select...</option>
+                        <option value="A">arm-twisting</option>
+                        <option value="B">unmasking</option>
+                        <option value="C">approach</option>
+                        <option value="D">connection</option>
+                    </select>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="matching-item" id="m5">
+                    <p>5. Deliberate _________</p>
+                    <select class="matching-selection">
+                        <option value="">Select...</option>
+                        <option value="A">unmasking</option>
+                        <option value="B">approach</option>
+                        <option value="C">connection</option>
+                        <option value="D">exclusion</option>
+                    </select>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="matching-item" id="m6">
+                    <p>6. Pious _________</p>
+                    <select class="matching-selection">
+                        <option value="">Select...</option>
+                        <option value="A">connection</option>
+                        <option value="B">exclusion</option>
+                        <option value="C">lies</option>
+                        <option value="D">unmasking</option>
+                    </select>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3 class="task-title">Task 3: Rephrasing - Complex Grammar</h3>
+        
+        <div class="explanation">
+            <p>Rewrite each of the following sentences from the article using your own words while maintaining the same meaning. Focus on simplifying complex grammatical structures.</p>
+        </div>
+        
+        <div class="question" id="r1">
+            <p>1. "Live with that knowledge, now, if you can."</p>
+            <textarea class="rephrase-input" rows="3" placeholder="Rewrite the sentence here..."></textarea>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="r2">
+            <p>2. "But, of course, Adam did precisely that – he ate from the tree of knowledge, he – like King Midas – wanted his eyes to be opened for his own good."</p>
+            <textarea class="rephrase-input" rows="4" placeholder="Rewrite the sentence here..."></textarea>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="r3">
+            <p>3. "What is best of all is utterly beyond your reach: not to be born, not to be, to be nothing. But the second best for you is – to die soon."</p>
+            <textarea class="rephrase-input" rows="4" placeholder="Rewrite the sentence here..."></textarea>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="r4">
+            <p>4. "As we grow older, we become ever more dependent on, if not addicted to, the use of this optical device."</p>
+            <textarea class="rephrase-input" rows="3" placeholder="Rewrite the sentence here..."></textarea>
+            <div class="feedback"></div>
+        </div>
+        
+        <div class="question" id="r5">
+            <p>5. "We deceive ourselves continuously, more often and more energetically than we deceive others. And we have good reasons for doing so."</p>
+            <textarea class="rephrase-input" rows="3" placeholder="Rewrite the sentence here..."></textarea>
+            <div class="feedback"></div>
+        </div>
+    </div>
+    
+    <div class="button-container">
+        <button class="button" id="check-answers">Check Answers</button>
+        <button class="button" id="download-answers">Download Answers</button>
+    </div>
+    
+    <script>
+        const answers = {
+            // Multiple choice - double-checked against text
+            'q1': 'B', // ephemeral = short-lived
+            'q2': 'B', // transgression = violation of a law/rule
+            'q3': 'C', // recalcitrant = stubborn and uncooperative
+            'q4': 'C', // idiosyncratically = in a uniquely individual way
+            'q5': 'B', // discernible = noticeable/recognizable
+            
+            // Matching - directly from text
+            'm1': 'B', // Royal arm-twisting
+            'm2': 'A', // Uncanny connection
+            'm3': 'C', // Oblique approach
+            'm4': 'B', // Methodical unmasking
+            'm5': 'D', // Deliberate exclusion
+            'm6': 'C'  // Pious lies
+        };
+        
+        // Model answers for rephrasing - improved and checked against original text
+        const modelAnswers = {
+            'r1': "Now you must try to continue your life with this knowledge, if that's possible for you.",
+            'r2': "Adam, of course, did exactly this - he ate the fruit from the knowledge tree. Like King Midas, he also wanted to gain insight for himself.",
+            'r3': "The absolute best thing is impossible for you to achieve: to have never been born at all. But since that's not possible, your next best option is to die quickly.",
+            'r4': "As we get older, we increasingly rely on and may even become dependent on using this way of perceiving things.",
+            'r5': "We continuously deceive ourselves, and we put more energy into this self-deception than we do into deceiving others. We have good justifications for doing this."
+        };
+        
+        // Add event listeners to options
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Get all options in this question
+                const question = this.closest('.question');
+                const options = question.querySelectorAll('.option');
+                
+                // Remove selected class from all options
+                options.forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+        
+        // Check answers button
+        document.getElementById('check-answers').addEventListener('click', function() {
+            // Check multiple choice answers
+            document.querySelectorAll('.question[id^="q"]').forEach(question => {
+                const id = question.id;
+                const selectedOption = question.querySelector('.option.selected');
+                const feedback = question.querySelector('.feedback');
+                
+                if (!selectedOption) {
+                    // Not answered
+                    feedback.textContent = 'Please select an answer.';
+                    feedback.className = 'feedback warning show';
+                    return;
+                }
+                
+                const selectedValue = selectedOption.dataset.value;
+                
+                // Remove previous styling
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                
+                if (selectedValue === answers[id]) {
+                    selectedOption.classList.add('correct');
+                    feedback.textContent = 'Correct!';
+                    feedback.className = 'feedback success show';
+                } else {
+                    selectedOption.classList.add('incorrect');
+                    question.querySelector(`.option[data-value="${answers[id]}"]`).classList.add('correct');
+                    feedback.textContent = 'Incorrect. Try again.';
+                    feedback.className = 'feedback error show';
+                }
+            });
+            
+            // Check matching answers
+            document.querySelectorAll('.matching-item').forEach(item => {
+                const id = item.id;
+                const select = item.querySelector('select');
+                const selectedValue = select.value;
+                const feedback = item.querySelector('.feedback');
+                
+                if (!selectedValue) {
+                    // Not answered
+                    feedback.textContent = 'Please select an option.';
+                    feedback.className = 'feedback warning show';
+                    return;
+                }
+                
+                if (selectedValue === answers[id]) {
+                    select.style.borderColor = 'var(--success-color)';
+                    feedback.textContent = 'Correct!';
+                    feedback.className = 'feedback success show';
+                } else {
+                    select.style.borderColor = 'var(--error-color)';
+                    feedback.textContent = 'Incorrect. Try again.';
+                    feedback.className = 'feedback error show';
+                }
+            });
+            
+            // Check rephrasing answers (just provide feedback that they've been recorded)
+            document.querySelectorAll('.question[id^="r"]').forEach(question => {
+                const textarea = question.querySelector('textarea');
+                const feedback = question.querySelector('.feedback');
+                
+                if (!textarea.value.trim()) {
+                    feedback.textContent = 'Please provide an answer.';
+                    feedback.className = 'feedback warning show';
+                    return;
+                }
+                
+                feedback.textContent = 'Answer recorded. Here is a model answer for reference: ' + modelAnswers[question.id];
+                feedback.className = 'feedback success show';
+            });
+        });
+        
+        // Download answers
+        document.getElementById('download-answers').addEventListener('click', function() {
+            let content = "Alexander's Advanced English Worksheet - April 28, 2025\n";
+            content += "Academic Text Analysis - Answers\n\n";
+            
+            // Multiple choice section
+            content += "Task 1: Multiple Choice - Advanced Vocabulary\n";
+            document.querySelectorAll('.question[id^="q"]').forEach(question => {
+                const id = question.id;
+                const questionText = question.querySelector('p').textContent.trim();
+                const selectedOption = question.querySelector('.option.selected');
+                
+                content += `${questionText}\n`;
+                if (selectedOption) {
+                    content += `Your answer: ${selectedOption.textContent}\n`;
+                    content += `Correct answer: ${question.querySelector(`.option[data-value="${answers[id]}"]`).textContent}\n`;
+                } else {
+                    content += `Your answer: not given\n`;
+                    content += `Correct answer: ${question.querySelector(`.option[data-value="${answers[id]}"]`).textContent}\n`;
+                }
+                content += "\n";
+            });
+            
+            // Matching section
+            content += "Task 2: Matching - Collocations\n";
+            document.querySelectorAll('.matching-item').forEach(item => {
+                const id = item.id;
+                const questionText = item.querySelector('p').textContent.trim();
+                const select = item.querySelector('select');
+                const selectedOption = select.options[select.selectedIndex].text;
+                
+                content += `${questionText}\n`;
+                if (select.value) {
+                    content += `Your answer: ${selectedOption}\n`;
+                    // Find correct answer text
+                    const correctIndex = Array.from(select.options).findIndex(option => option.value === answers[id]);
+                    const correctText = select.options[correctIndex].text;
+                    content += `Correct answer: ${correctText}\n`;
+                } else {
+                    content += `Your answer: not given\n`;
+                    // Find correct answer text
+                    const correctIndex = Array.from(select.options).findIndex(option => option.value === answers[id]);
+                    const correctText = select.options[correctIndex].text;
+                    content += `Correct answer: ${correctText}\n`;
+                }
+                content += "\n";
+            });
+            
+            // Rephrasing section
+            content += "Task 3: Rephrasing - Complex Grammar\n";
+            document.querySelectorAll('.question[id^="r"]').forEach(question => {
+                const id = question.id;
+                const questionText = question.querySelector('p').textContent.trim();
+                const textarea = question.querySelector('textarea');
+                
+                content += `${questionText}\n`;
+                if (textarea.value.trim()) {
+                    content += `Your answer: ${textarea.value.trim()}\n`;
+                } else {
+                    content += `Your answer: not given\n`;
+                }
+                content += `Model answer: ${modelAnswers[id]}\n\n`;
+            });
+            
+            // Create download
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "Alexander_Worksheet_Answers_April_28_2025.txt";
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+        });
+    </script>
+</body>
+</html>
